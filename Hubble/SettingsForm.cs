@@ -24,7 +24,7 @@ namespace Hubble
             deviceid_tb.Text = conf.getCfg("device_id");
             securemode_cb.Checked = conf.getCfg("secureMode").Equals("yes");
             verbose_cb.Checked = conf.getCfg("verbose").Equals("yes");
-            
+            refreshtime_num.Value = int.Parse(conf.getCfg("refreshTime"));
         }
 
         private void save_btn_Click(object sender, EventArgs e)

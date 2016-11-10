@@ -9,17 +9,17 @@ namespace Hubble
 {
     public class InfoRunner
     {
-        Config c;
-        public InfoRunner(Config c)
+        Config conf;
+        public InfoRunner(Config conf)
         {
-            this.c = c;
+            this.conf = conf;
 
         }
 
         public void run()
         {
-            ApiEngine ae = new ApiEngine();
-            Boolean verbose = c.getCfg("verbose").Equals("yes");
+            ApiEngine ae = new ApiEngine(conf);
+            Boolean verbose = conf.getCfg("verbose").Equals("yes");
             while (true)
             {
                 Console.Clear();
@@ -29,7 +29,7 @@ namespace Hubble
                     try
                     {
                         client.Headers[HttpRequestHeader.ContentType] = "application/json";
-                        client.UploadData(c.getCfg("apiEntry") + "api/v1/devices/" + c.getCfg("device_id") + "/latest", System.Text.Encoding.UTF8.GetBytes(json_to_submit));
+                        client.UploadData(conf.getCfg("apiEntry") + "api/v1/devices/" + conf.getCfg("device_id") + "/latest", System.Text.Encoding.UTF8.GetBytes(json_to_submit));
                     }
                     catch (Exception e)
                     {
@@ -40,11 +40,11 @@ namespace Hubble
            
                  if (verbose)
                     {
-                        Console.WriteLine("Following JSON was sent for " + c.getCfg("device_id") + "\n");
+                        Console.WriteLine("Following JSON was sent for " + conf.getCfg("device_id") + "\n");
                         Console.WriteLine(json_to_submit);
                     }
 
-                System.Threading.Thread.Sleep(int.Parse(c.getCfg("refreshTime")));
+                System.Threading.Thread.Sleep(int.Parse(conf.getCfg("refreshTime")));
             }
         }
     }

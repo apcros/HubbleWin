@@ -9,16 +9,14 @@ namespace Hubble
  
   class ApiEngine
     {
-        SystemInfoEngine sie; 
-        public ApiEngine()
+        SystemInfoEngine sie;
+        Config conf;
+        public ApiEngine(Config conf)
         {
             sie = new SystemInfoEngine();
+            this.conf = conf;
         }
 
-        public void post()
-        {
-
-        }
         public string getJson()
         {
             
@@ -29,7 +27,7 @@ namespace Hubble
             data.ram_free = sie.getFreeRam();
             data.ram_total = sie.getTotalRam();
             data.cpu_usage = sie.getCpuUsage();
-            data.client_version = "ALPHA - 0.1 - WIN32";
+            data.client_version = conf.getCfg("app_version");
             
             int i = 0;
             foreach(Drive drive in drives)

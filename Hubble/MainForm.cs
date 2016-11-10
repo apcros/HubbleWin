@@ -13,43 +13,39 @@ namespace Hubble
 {
     public partial class MainForm : Form
     {
-        Config c;
+        Config conf;
         Thread publishingThread;
         public MainForm()
         {
             InitializeComponent();
-            c = new Hubble.Config();
+            conf = new Hubble.Config();
             this.checkSettings();
 
         }
         public void checkSettings()
         {
-            if (c.getCfg("device_id") == "" || c.getCfg("apiEntry") == "")
+            if (conf.getCfg("device_id") == "" || conf.getCfg("apiEntry") == "")
             {
                 connect_btn.Enabled = false;
                 status_label.Text = "Error : Hubble not setup";
             } else
             {
                 connect_btn.Enabled = true;
-                status_label.Text = "Ready to connect to " + c.getCfg("apiEntry");
+                status_label.Text = "Ready to connect to " + conf.getCfg("apiEntry");
             }
         }
-        private void button1_Click(object sender, EventArgs e)
+        private void app_settings_btn_Click(object sender, EventArgs e)
         {
-            SettingsForm settings_window = new SettingsForm(this,c);
+            SettingsForm settings_window = new SettingsForm(this, conf);
             settings_window.Show();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void MainForm_load(object sender, EventArgs e)
         {
-
+            this.Text = "Hubble " + conf.getCfg("app_version");
         }
-        private void button1_Click_1(object sender, EventArgs e)
+        
+        private void connect_btn_Click(object sender, EventArgs e)
         {
             if (publishingThread == null)
             {
@@ -68,7 +64,7 @@ namespace Hubble
 
         private void connect()
         {
-            InfoRunner ir = new InfoRunner(c);
+            InfoRunner ir = new InfoRunner(conf);
             ir.run();
         }
     }

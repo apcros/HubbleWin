@@ -41,7 +41,7 @@
             this.app_settings_btn.TabIndex = 0;
             this.app_settings_btn.Text = "Settings";
             this.app_settings_btn.UseVisualStyleBackColor = true;
-            this.app_settings_btn.Click += new System.EventHandler(this.button1_Click);
+            this.app_settings_btn.Click += new System.EventHandler(this.app_settings_btn_Click);
             // 
             // status_label
             // 
@@ -51,7 +51,6 @@
             this.status_label.Size = new System.Drawing.Size(71, 17);
             this.status_label.TabIndex = 1;
             this.status_label.Text = "Loading...";
-            this.status_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // connect_btn
             // 
@@ -61,7 +60,7 @@
             this.connect_btn.TabIndex = 2;
             this.connect_btn.Text = "Connect";
             this.connect_btn.UseVisualStyleBackColor = true;
-            this.connect_btn.Click += new System.EventHandler(this.button1_Click_1);
+            this.connect_btn.Click += new System.EventHandler(this.connect_btn_Click);
             // 
             // MainForm
             // 
