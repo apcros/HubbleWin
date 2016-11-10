@@ -1,3 +1,8 @@
 language: csharp
 solution: Hubble.sln
-#
+install:
+  - nuget restore Hubble.sln
+  - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
+script:
+  - xbuild /p:Configuration=Release Hubble.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./Hubble.Tests/bin/Release/Hubble.Tests.dll
