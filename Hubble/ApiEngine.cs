@@ -52,5 +52,11 @@ namespace Hubble
         public HubbleJSON (int sizeDrives) {
                 drives = new Drive[sizeDrives];
             }
+
+        //Overloaded constructor for deserialization
+        public HubbleJSON()
+        {
+
+        }
     }
 }
