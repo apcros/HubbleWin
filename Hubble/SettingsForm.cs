@@ -10,26 +10,21 @@ using System.Windows.Forms;
 
 namespace Hubble
 {
-    public partial class Form2 : Form
+    public partial class SettingsForm : Form
     {
         private Config conf;
-        private Form1 mainWin;
+        private MainForm mainForm;
 
-        public Form2(Form1 f, Config c)
+        public SettingsForm(MainForm mainForm, Config conf)
         {
-            conf = c;
-            mainWin = f;
+            this.conf = conf;
+            this.mainForm = mainForm;
             InitializeComponent();
             apientry_tb.Text = conf.getCfg("apiEntry");
             deviceid_tb.Text = conf.getCfg("device_id");
             securemode_cb.Checked = conf.getCfg("secureMode").Equals("yes");
             verbose_cb.Checked = conf.getCfg("verbose").Equals("yes");
             
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void save_btn_Click(object sender, EventArgs e)
@@ -56,7 +51,7 @@ namespace Hubble
 
             conf.writeCfg("device_id", deviceid_tb.Text);
             this.Close();
-            mainWin.checkSettings();
+            mainForm.checkSettings();
         }
     }
 }

@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace Hubble
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
         Config c;
         Thread publishingThread;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             c = new Hubble.Config();
@@ -36,7 +36,7 @@ namespace Hubble
         }
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 settings_window = new Form2(this,c);
+            SettingsForm settings_window = new SettingsForm(this,c);
             settings_window.Show();
         }
 
@@ -45,6 +45,10 @@ namespace Hubble
 
         }
 
+        private void MainForm_load(object sender, EventArgs e)
+        {
+
+        }
         private void button1_Click_1(object sender, EventArgs e)
         {
             if (publishingThread == null)
@@ -62,10 +66,6 @@ namespace Hubble
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
         private void connect()
         {
             InfoRunner ir = new InfoRunner(c);

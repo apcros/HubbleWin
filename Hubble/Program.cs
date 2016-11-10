@@ -7,7 +7,7 @@ namespace Hubble
     {
         static void Main(string[] args)
         {
-            Application.Run(new Form1());
+            Application.Run(new MainForm());
         }
     }
 }
