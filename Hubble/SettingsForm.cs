@@ -22,7 +22,7 @@ namespace Hubble
             InitializeComponent();
             apientry_tb.Text = conf.getCfg("apiEntry");
             deviceid_tb.Text = conf.getCfg("device_id");
-            securemode_cb.Checked = conf.getCfg("secureMode").Equals("yes");
+            devicekey_tb.Text = conf.getCfg("device_key");
             verbose_cb.Checked = conf.getCfg("verbose").Equals("yes");
             refreshtime_num.Value = int.Parse(conf.getCfg("refreshTime"));
         }
@@ -33,14 +33,6 @@ namespace Hubble
             int refresh = (int) Math.Round(refreshtime_num.Value);
             conf.writeCfg("refreshTime", refresh.ToString());
 
-            if(securemode_cb.Checked)
-            {
-                conf.writeCfg("secureMode", "yes");
-            } else
-            {
-                conf.writeCfg("secureMode", "no");
-            }
-
             if(verbose_cb.Checked)
             {
                 conf.writeCfg("verbose", "yes");
@@ -50,6 +42,7 @@ namespace Hubble
             }
 
             conf.writeCfg("device_id", deviceid_tb.Text);
+            conf.writeCfg("device_key", devicekey_tb.Text);
             this.Close();
             mainForm.checkSettings();
         }

@@ -29,6 +29,7 @@ namespace Hubble
                     try
                     {
                         client.Headers[HttpRequestHeader.ContentType] = "application/json";
+                        client.Headers.Add("HUBBLE-DEVICE-KEY", conf.getCfg("device_key"));
                         client.UploadData(conf.getCfg("apiEntry") + "api/v1/devices/" + conf.getCfg("device_id") + "/latest", System.Text.Encoding.UTF8.GetBytes(json_to_submit));
                     }
                     catch (Exception e)

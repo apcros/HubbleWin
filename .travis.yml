@@ -1,8 +1,2 @@
 language: csharp
 solution: Hubble.sln
-before_install:
-  - sudo apt-get install nunit-console
-before_script:
-  - nuget restore Hubble.sln
-after_script:
-  - nunit-console Tests/bin/Release/Tests.dll

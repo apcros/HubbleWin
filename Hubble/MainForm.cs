@@ -24,7 +24,7 @@ namespace Hubble
         }
         public void checkSettings()
         {
-            if (conf.getCfg("device_id") == "" || conf.getCfg("apiEntry") == "")
+            if (conf.getCfg("device_id") == "" || conf.getCfg("apiEntry") == "" || conf.getCfg("device_key") == "")
             {
                 connect_btn.Enabled = false;
                 status_label.Text = "Error : Hubble not setup";

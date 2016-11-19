@@ -32,11 +32,12 @@
             this.deviceid_tb = new System.Windows.Forms.TextBox();
             this.label_api = new System.Windows.Forms.Label();
             this.label_deviceid = new System.Windows.Forms.Label();
-            this.securemode_cb = new System.Windows.Forms.CheckBox();
             this.verbose_cb = new System.Windows.Forms.CheckBox();
             this.refreshtime_num = new System.Windows.Forms.NumericUpDown();
             this.label_refreshtime = new System.Windows.Forms.Label();
             this.save_btn = new System.Windows.Forms.Button();
+            this.label_devicekey = new System.Windows.Forms.Label();
+            this.devicekey_tb = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.refreshtime_num)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,24 +69,14 @@
             this.label_deviceid.AutoSize = true;
             this.label_deviceid.Location = new System.Drawing.Point(15, 52);
             this.label_deviceid.Name = "label_deviceid";
-            this.label_deviceid.Size = new System.Drawing.Size(76, 17);
+            this.label_deviceid.Size = new System.Drawing.Size(86, 17);
             this.label_deviceid.TabIndex = 3;
-            this.label_deviceid.Text = "Device ID :";
-            // 
-            // securemode_cb
-            // 
-            this.securemode_cb.AutoSize = true;
-            this.securemode_cb.Location = new System.Drawing.Point(18, 140);
-            this.securemode_cb.Name = "securemode_cb";
-            this.securemode_cb.Size = new System.Drawing.Size(114, 21);
-            this.securemode_cb.TabIndex = 4;
-            this.securemode_cb.Text = "Secure mode";
-            this.securemode_cb.UseVisualStyleBackColor = true;
+            this.label_deviceid.Text = "Device UID :";
             // 
             // verbose_cb
             // 
             this.verbose_cb.AutoSize = true;
-            this.verbose_cb.Location = new System.Drawing.Point(153, 140);
+            this.verbose_cb.Location = new System.Drawing.Point(344, 130);
             this.verbose_cb.Name = "verbose_cb";
             this.verbose_cb.Size = new System.Drawing.Size(83, 21);
             this.verbose_cb.TabIndex = 5;
@@ -99,7 +90,7 @@
             0,
             0,
             0});
-            this.refreshtime_num.Location = new System.Drawing.Point(202, 93);
+            this.refreshtime_num.Location = new System.Drawing.Point(202, 130);
             this.refreshtime_num.Maximum = new decimal(new int[] {
             100000,
             0,
@@ -122,7 +113,7 @@
             // label_refreshtime
             // 
             this.label_refreshtime.AutoSize = true;
-            this.label_refreshtime.Location = new System.Drawing.Point(15, 93);
+            this.label_refreshtime.Location = new System.Drawing.Point(15, 130);
             this.label_refreshtime.Name = "label_refreshtime";
             this.label_refreshtime.Size = new System.Drawing.Size(128, 17);
             this.label_refreshtime.TabIndex = 7;
@@ -138,16 +129,33 @@
             this.save_btn.UseVisualStyleBackColor = true;
             this.save_btn.Click += new System.EventHandler(this.save_btn_Click);
             // 
+            // label_devicekey
+            // 
+            this.label_devicekey.AutoSize = true;
+            this.label_devicekey.Location = new System.Drawing.Point(14, 88);
+            this.label_devicekey.Name = "label_devicekey";
+            this.label_devicekey.Size = new System.Drawing.Size(87, 17);
+            this.label_devicekey.TabIndex = 9;
+            this.label_devicekey.Text = "Device Key :";
+            // 
+            // devicekey_tb
+            // 
+            this.devicekey_tb.Location = new System.Drawing.Point(202, 88);
+            this.devicekey_tb.Name = "devicekey_tb";
+            this.devicekey_tb.Size = new System.Drawing.Size(280, 22);
+            this.devicekey_tb.TabIndex = 10;
+            // 
             // SettingsForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(489, 274);
+            this.Controls.Add(this.devicekey_tb);
+            this.Controls.Add(this.label_devicekey);
             this.Controls.Add(this.save_btn);
             this.Controls.Add(this.label_refreshtime);
             this.Controls.Add(this.refreshtime_num);
             this.Controls.Add(this.verbose_cb);
-            this.Controls.Add(this.securemode_cb);
             this.Controls.Add(this.label_deviceid);
             this.Controls.Add(this.label_api);
             this.Controls.Add(this.deviceid_tb);
@@ -167,10 +175,11 @@
         private System.Windows.Forms.TextBox deviceid_tb;
         private System.Windows.Forms.Label label_api;
         private System.Windows.Forms.Label label_deviceid;
-        private System.Windows.Forms.CheckBox securemode_cb;
         private System.Windows.Forms.CheckBox verbose_cb;
         private System.Windows.Forms.NumericUpDown refreshtime_num;
         private System.Windows.Forms.Label label_refreshtime;
         private System.Windows.Forms.Button save_btn;
+        private System.Windows.Forms.Label label_devicekey;
+        private System.Windows.Forms.TextBox devicekey_tb;
     }
 }
